@@ -49,8 +49,9 @@ button {
 }
 #words {
   filter: blur(5px);
+  color: var(--textsecondary);
 }
-#game:focus #words{
+#game:focus #words {
   filter: blur(0);
 }
 #focus_error {
@@ -59,11 +60,41 @@ button {
   text-align: center;
   padding-top: 50px;
 }
-#game:focus #focus_error{
+#game:focus #focus_error {
   display: none;
 }
 .word {
   display: inline-block;
   font-family: "Roboto Mono", monospace;
   margin: 0 5px;
+}
+.letter.correct{
+  color: white;
+}
+.letter.incorrect{
+  color: #f45;
+}
+@keyframes blink{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+#cursor{
+  display: none;
+  width: 2px;
+  height: 1.6rem;
+  background: var(--primaryColor);
+  position: fixed;
+  top: 210px;
+  left: 555px;
+  animation: blink .5s infinite;
+}
+#game:focus #cursor{
+  display: block;
 }

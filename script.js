@@ -2,16 +2,21 @@ const words = 'in one good real one not school set they state high life consider
 const wordsArray = words.split(' ');
 const wordsCount = wordsArray.length;
 
+function addclass(el, name) {
+    el.className += ' ' + name;
+}
+
+function reoveclass(el, name) {
+    el.className = el.className.replace(name, '');
+}
 function randomWord() {
     const randomIndex = Math.floor(Math.random() * wordsCount);
-    return wordsArray[randomIndex];
+    return wordsArray[randomIndex - 1];
 }
 
 function formatword(word) {
     return `<div class="word">
-    <span class="letter">
-    ${word.split('').join('</span><span class="letter">')}
-    </span>
+    <span class="letter">${word.split('').join('</span><span class="letter">')}</span>
     </div>`;
 }
 
@@ -20,6 +25,20 @@ function newGame() {
     for (let i = 0; i < 200; i++) {
         document.getElementById('words').innerHTML += formatword(randomWord());
     }
+    addclass(document.querySelector('.word'), 'current');
+    addclass(document.querySelector('.letter'), 'current');
 }
 
 newGame();
+document.getElementById('game').addEventListener('keyup', ev => {
+    const key = ev.key;
+    const currentletter = document.querySelector('.letter.current');
+    const expected = currentletter.innerHTML;
+    const isletter = key.length === 1 && key !== ' ';
+    console.log({ key, expected });
+    if (isletter) {
+        if (currentletter) {
+            addclass(currentletter, key === expected ? 'correct' : 'incorrect');
+        }
+    }
+});
