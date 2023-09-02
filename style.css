@@ -68,24 +68,24 @@ button {
   font-family: "Roboto Mono", monospace;
   margin: 0 5px;
 }
-.letter.correct{
+.letter.correct {
   color: white;
 }
-.letter.incorrect{
+.letter.incorrect {
   color: #f45;
 }
-@keyframes blink{
-  0%{
+@keyframes blink {
+  0% {
     opacity: 1;
   }
-  50%{
+  50% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
-#cursor{
+#cursor {
   display: none;
   width: 2px;
   height: 1.6rem;
@@ -93,8 +93,8 @@ button {
   position: fixed;
   top: 210px;
   left: 555px;
-  animation: blink .5s infinite;
+  animation: blink 0.5s infinite;
 }
-#game:focus #cursor{
+#game:focus #cursor {
   display: block;
 }
