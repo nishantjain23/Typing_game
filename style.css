@@ -91,8 +91,8 @@ button {
   height: 1.6rem;
   background: var(--primaryColor);
   position: fixed;
-  top: 210px;
-  left: 555px;
+  top: 205px;
+  left: 342px;
   animation: blink 0.5s infinite;
 }
 #game:focus #cursor {
